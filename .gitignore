@@ -44,3 +44,5 @@ doc/
 .DS_Store
 .idea
 .secret
+
+Gemfile.lock
