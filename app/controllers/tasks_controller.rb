@@ -1,11 +1,41 @@
 class TasksController < ApplicationController
 
-  def create
+  def index
+    @tasks = Task.all
+  end
 
+  def new
+    @task = Task.new
+  end
+
+  def create
     @project = Project.find(params[:project_id])
     @task = @project.tasks.create(task_params)
 
-    redirect_to project_path(@project.id)
+    if @task.save
+      redirect_to project_path(params[:project_id])
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @project = Project.find(params[:project_id])
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to project_path(@task.project_id)
+    else
+      render 'edit'
+    end
+  end
+
+  def show
+    @project = Project.find(params[:project_id])
+    @task = Task.find(params[:id])
   end
 
   def destroy
@@ -24,7 +54,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params[:task].permit(:title)
+      params[:task].permit(:title, :overview, :detail, :project_id)
     end
 
 end

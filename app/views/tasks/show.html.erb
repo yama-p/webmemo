@@ -1,0 +1,12 @@
+<h1>
+  <%= @task.title %>
+</h1>
+<%= link_to "[編集]", edit_project_task_path(@task.project_id, @task.id) %>
+<%= link_to "[削除]", project_task_path(@task.project_id, @task.id), method: :delete, data: { confirm: "本当に削除しますがよろしいですか？" } %>
+
+<h2>概要</h2>
+<p><%= simple_format @task.overview %></p>
+<h2>詳細</h2>
+<p><%= simple_format @task.detail %></p>
+<h2>プロジェクト名</h2>
+<p><%= @project.title %></p>

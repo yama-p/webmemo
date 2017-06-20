@@ -1,0 +1,26 @@
+<h1>
+  タスクの編集をします
+</h1>
+
+<%= form_for @task, url: project_task_path do |f| %>
+
+    <p>
+    <h2>タイトル</h2>
+    <%= f.text_field :title %>
+    <h2>概要</h2>
+    <%= f.text_area :overview, :size => "50x5" %>
+    <h2>詳細</h2>
+    <%= f.text_area :detail, :size => "50x10" %>
+    <h2>関連プロジェクト</h2>
+    <%= f.collection_select :project_id, Project.all, :id, :title %>
+
+    <% if @task.errors.any? %>
+        <%= @task.errors.messages[:title][0] %>
+    <% end %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>

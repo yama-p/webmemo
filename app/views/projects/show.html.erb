@@ -1,5 +1,5 @@
 <h1>
-  <%= @project.title %>
+  <%= @project.title %>のタスクリスト
 </h1>
 
 <ul>
@@ -7,19 +7,13 @@
   <% @project.tasks.each do |task| %>
     <li>
       <%= check_box_tag '', '', task.done, {'data-id' => task.id, 'data-project_id' => task.project_id} %>
-      <%= task.title %>
-      <%= link_to "[削除]", project_task_path(task.project_id, task.id), method: :delete, data: { confirm: "本当に削除しますがよろしいですか？" } %>
+      <%= link_to task.title, project_task_path(task.project_id, task.id) %>
     </li>
   <% end %>
 
-  <li>
-    <%= form_for [@project, @project.tasks.build] do |f| %>
-      <%= f.text_field :title %>
-      <%= f.submit %>
-    <% end %>
-  </li>
-
 </ul>
+
+<p><%= link_to "タスクの追加", new_project_task_path(@project.id) %></p>
 
 <script>
   $(function() {
