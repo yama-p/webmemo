@@ -16,16 +16,18 @@
 
 <div>
   <p>
-    ↓ このタスクがいいと思ったら押してね。
-    <%= "LOVE数 : #{@task.like.to_s}" %>><br />
-    <%= button_tag "", {'data-id' => @task.id, 'data-project_id' => @task.project_id, class: :task_like_button } %>
+    <div id="like_result">↓ このタスクがいいと思ったら押してね : <%= @task.like %><br /></div>
+    <%= button_to "", like_project_task_path(@task.project_id, @task.id), method: :post, class: :task_like_button, remote:true %>
+    <!--<%= button_tag "", {'data-path' => like_project_task_path(@task.project_id, @task.id), class: :task_like_button } %>-->
+    <!--<%= button_tag "", {'data-id' => @task.id, 'data-project_id' => @task.project_id, class: :task_like_button } %>-->
   </p>
 </div>
 
 <script>
     $(function() {
         $("button[class=task_like_button]").click(function(){
-            $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/like');
+            $.post($(this).data('path'));
+//            $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/like');
         })
     });
 </script>

@@ -52,11 +52,10 @@ class TasksController < ApplicationController
   end
 
   def like
-#    render body: nil
+    # render body: nil
     @task = Task.find(params[:id])
     @task.like = @task.like + 1
     @task.save
-    render "show"
   end
 
   private

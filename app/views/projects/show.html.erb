@@ -10,7 +10,8 @@
   <% @project.tasks.each do |task| %>
       <tr>
         <td>
-          <%= check_box_tag '', '', task.done, {'data-id' => task.id, 'data-project_id' => task.project_id} %>
+          <%= check_box_tag '', '', task.done, {'data-path': toggle_project_task_path(task.project_id, task.id)} %>
+          <!--<%= check_box_tag '', '', task.done, {'data-id' => task.id, 'data-project_id' => task.project_id} %>-->
         </td>
         <td>
           <%= link_to task.title, project_task_path(task.project_id, task.id) %>
@@ -24,7 +25,8 @@
 <script>
   $(function() {
       $("input[type='checkbox']").click(function() {
-          $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle');
+          $.post($(this).data('path'));
+//          $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/toggle');
       });
   });
 </script>
