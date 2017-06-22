@@ -27,7 +27,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to project_path(@task.project_id)
+      redirect_to project_task_path(@task.project_id, @task.id)
     else
       render 'edit'
     end
@@ -62,7 +62,7 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params[:task].permit(:title, :overview, :detail, :project_id)
+      params[:task].permit(:title, :overview, :detail, :project_id, :start, :limit)
     end
 
 end
