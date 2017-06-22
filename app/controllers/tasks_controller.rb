@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task = @project.tasks.create(task_params)
 
     if @task.save
-      redirect_to project_path(params[:project_id])
+      redirect_to project_path(@task.project_id)
     else
       render 'new'
     end
@@ -49,6 +49,14 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.done = !@task.done
     @task.save
+  end
+
+  def like
+#    render body: nil
+    @task = Task.find(params[:id])
+    @task.like = @task.like + 1
+    @task.save
+    render "show"
   end
 
   private

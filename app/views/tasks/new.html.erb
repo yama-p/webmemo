@@ -1,22 +1,5 @@
 <h1>
-  新しいタスクを追加します
+  タスクの追加
 </h1>
 
-<%= form_for @task, url: project_tasks_path do |f| %>
-
-    <h2>タイトル</h2>
-    <%= f.text_field :title %>
-    <h2>概要</h2>
-    <%= f.text_area :overview, :size => "50x5" %>
-    <h2>詳細</h2>
-    <%= f.text_area :detail, :size => "50x10" %>
-
-    <% if @task.errors.any? %>
-        <%= @task.errors.messages[:title][0] %>
-    <% end %>
-
-    <p>
-      <%= f.submit %>
-    </p>
-
-<% end %>
+<%= render "form", { submit_path: project_tasks_path } %>

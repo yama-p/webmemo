@@ -2,16 +2,22 @@
   <%= @project.title %>のタスクリスト
 </h1>
 
-<ul>
-
+<table border="1">
+  <tr>
+    <th>完了</th>
+    <th>タスク名</th>
+  </tr>
   <% @project.tasks.each do |task| %>
-    <li>
-      <%= check_box_tag '', '', task.done, {'data-id' => task.id, 'data-project_id' => task.project_id} %>
-      <%= link_to task.title, project_task_path(task.project_id, task.id) %>
-    </li>
+      <tr>
+        <td>
+          <%= check_box_tag '', '', task.done, {'data-id' => task.id, 'data-project_id' => task.project_id} %>
+        </td>
+        <td>
+          <%= link_to task.title, project_task_path(task.project_id, task.id) %>
+        </td>
+      </tr>
   <% end %>
-
-</ul>
+</table>
 
 <p><%= link_to "タスクの追加", new_project_task_path(@project.id) %></p>
 

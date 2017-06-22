@@ -4,9 +4,28 @@
 <%= link_to "[編集]", edit_project_task_path(@task.project_id, @task.id) %>
 <%= link_to "[削除]", project_task_path(@task.project_id, @task.id), method: :delete, data: { confirm: "本当に削除しますがよろしいですか？" } %>
 
-<h2>概要</h2>
-<p><%= simple_format @task.overview %></p>
-<h2>詳細</h2>
-<p><%= simple_format @task.detail %></p>
-<h2>プロジェクト名</h2>
-<p><%= @project.title %></p>
+<%= show_task_part '概要', @task.overview %>
+<hr>
+<%= show_task_part '詳細', @task.detail %>
+<hr>
+<%= show_task_part '関連プロジェクト名', @project.title %>
+<hr>
+<%= show_task_part '開始日', format_datetime(@task.start) %>
+<hr>
+<%= show_task_part '期限', format_datetime(@task.limit) %>
+
+<div>
+  <p>
+    ↓ このタスクがいいと思ったら押してね。
+    <%= "LOVE数 : #{@task.like.to_s}" %>><br />
+    <%= button_tag "", {'data-id' => @task.id, 'data-project_id' => @task.project_id, class: :task_like_button } %>
+  </p>
+</div>
+
+<script>
+    $(function() {
+        $("button[class=task_like_button]").click(function(){
+            $.post('/projects/'+$(this).data('project_id')+'/tasks/'+$(this).data('id')+'/like');
+        })
+    });
+</script>

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   root 'projects#index'
 
   post '/projects/:project_id/tasks/:id/toggle' => 'tasks#toggle'
+  post '/projects/:project_id/tasks/:id/like' => 'tasks#like'
 
 end
