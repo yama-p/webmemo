@@ -9,8 +9,6 @@ In order to study Ruby on Rails, I created an application for task management.
 ## Requirement
 * Ruby on Rails 5.1.1
 * Ruby 2.4.1
-* jquery-rails 4.3.1
-* devise 4.3.0
 
 ## Installation
 * Download webmemo from the git repository.
