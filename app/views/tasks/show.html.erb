@@ -1,3 +1,6 @@
+
+<%= image_tag url_for(controller: :tasks, action: :send_uploadfile, id:@task.id, project_id:@task.project_id), alt:'タスクの画像は設定されていません', class: :show_task_image %>
+
 <h1>
   <%= @task.title %>
 </h1>

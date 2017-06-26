@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       member do
         post :toggle
         post :like
+        get :send_uploadfile
       end
 
     end

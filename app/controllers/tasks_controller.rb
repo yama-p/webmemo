@@ -52,16 +52,22 @@ class TasksController < ApplicationController
   end
 
   def like
-    # render body: nil
     @task = Task.find(params[:id])
     @task.like = @task.like + 1
     @task.save
   end
 
+  def send_uploadfile
+    tmpbin = Task.find(params[:id])
+    if (1 <= tmpbin.uploadfile.size)
+      send_data(tmpbin.uploadfile, type:tmpbin.uploadctype, disposition:'inline')
+    end
+  end
+
   private
 
     def task_params
-      params[:task].permit(:title, :overview, :detail, :project_id, :start, :limit)
+      params[:task].permit(:title, :overview, :detail, :project_id, :start, :limit, :data)
     end
 
 end

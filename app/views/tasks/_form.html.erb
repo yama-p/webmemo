@@ -1,28 +1,42 @@
-<%= form_for @task, url: submit_path do |f| %>
+<%= form_for @task, url: submit_path, multipart: true do |f| %>
 
     <div>
       <%= f.label "タイトル" %><br />
       <%= f.text_field :title %>
     </div>
+    <hr>
     <div>
       <%= f.label "概要" %><br />
       <%= f.text_area :overview, :size => "50x5" %>
     </div>
+    <hr>
     <div>
       <%= f.label "詳細" %><br />
       <%= f.text_area :detail, :size => "50x10" %>
     </div>
+    <hr>
     <div>
       <%= f.label "関連プロジェクト" %><br />
       <%= f.collection_select :project_id, Project.all, :id, :title %>
     </div>
+    <hr>
     <div>
       <%= f.label "開始日" %><br />
       <%= f.date_field :start %>
     </div>
+    <hr>
     <div>
       <%= f.label "期限" %><br />
       <%= f.date_field :limit %>
+    </div>
+    <hr>
+    <div>
+      <%= f.label "タスクのイメージ画像 (任意)" %><br />
+      <%= f.file_field :data %><br />
+      <% if local_assigns[:edit_flag].present? %>
+          <%= f.label "現在の設定" %><br />
+          <%= image_tag url_for(controller: :tasks, action: :send_uploadfile), alt:'設定されていません', class: :show_task_image %>
+      <% end %>
     </div>
 
     <% if @task.errors.any? %>
