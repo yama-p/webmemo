@@ -2,15 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .task_like_button {
-  /* 文字の太さをboldに指定 */
-  font-weight: bold;
-
-  /* 縦方向に18px、
-   * 横方向に2pxの余白を指定 */
-//  padding: 18px 2px;
   width: 160px;
   height: 160px;
-
   background-image: image-url("like.jpg");
   background-repeat: no-repeat;
   background-position: center center;
