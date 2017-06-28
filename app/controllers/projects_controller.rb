@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
 
+  before_action :sign_in_required
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index

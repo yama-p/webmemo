@@ -19,3 +19,7 @@ body { background: lightgray; }
     color: gray;
     font-style: italic;
 }
+#alert {
+    color: gray;
+    font-style: italic;
+}

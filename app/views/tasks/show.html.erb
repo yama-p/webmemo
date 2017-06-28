@@ -1,8 +1,4 @@
-<%= link_to "[戻る]", project_path(@task.project_id) %><br />
-
 <%= image_tag url_for(controller: :tasks, action: :send_uploadfile, id:@task.id, project_id:@task.project_id), alt:'タスクの画像は設定されていません', class: :show_task_image %>
-
-<p id="notice"><%= notice %></p>
 
 <h1>
   <%= @task.title %>
@@ -26,3 +22,5 @@
     <%= button_to "", like_project_task_path(@task.project_id, @task.id), method: :post, class: :task_like_button, remote:true %>
   </p>
 </div>
+
+<%= link_to "戻る", project_path(@task.project_id) %>

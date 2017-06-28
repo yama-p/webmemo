@@ -35,6 +35,7 @@ vendor/bundle
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+public/assets/*
 
 # Ignore other unneeded files.
 doc/
@@ -46,3 +47,4 @@ doc/
 .secret
 
 Gemfile.lock
+yarn.lock

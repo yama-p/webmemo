@@ -54,7 +54,7 @@ class TasksController < ApplicationController
   end
 
   def send_uploadfile
-    if (1 <= @task.uploadfile.size)
+    if (!@task.uploadfile.nil?)
       send_data(@task.uploadfile, type:@task.uploadctype, disposition:'inline')
     end
   end
