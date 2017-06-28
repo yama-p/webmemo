@@ -53,7 +53,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # default url
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV['RAILS_ACTION_MAILER_DEFAULT_URL_HOST'] }
 
   # mail setting
   config.action_mailer.raise_delivery_errors = true
@@ -61,8 +61,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       :address => "smtp.gmail.com",
       :port => 587,
-      :user_name => "samaru.777.masaru@gmail.com",
-      :password => "vqjfhzgjzdnhlinx",
+      :user_name => ENV['RAILS_ACTION_MAILER_SMTP_USERNAME'],
+      :password => ENV['RAILS_ACTION_MAILER_SMTP_PASSWORD'],
       :authentication => :plain,
       :enable_starttls_auto => true
   }
