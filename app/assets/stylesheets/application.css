@@ -19,7 +19,7 @@ body { background: #f0f0f0; }
     color: darkgray;
     font-style: italic;
 }
-#alert {
+#alert, #error_explanation {
     color: red;
     font-style: italic;
 }

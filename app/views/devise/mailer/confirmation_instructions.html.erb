@@ -1,5 +1,6 @@
-<p>Welcome <%= @email %>!</p>
+<p>ようこそ <%= @email %>!</p>
 
-<p>下記のリンクからアカウントを登録できます。:</p>
+<p>アカウントの登録をご連絡します。</p>
+<p>下記のリンクからアカウント登録を完了できます:</p>
 
 <p><%= link_to 'アカウントを登録', confirmation_url(@resource, confirmation_token: @token) %></p>
