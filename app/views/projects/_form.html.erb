@@ -1,13 +1,9 @@
 <%= form_for @project do |f| %>
 
     <div>
-      <%= f.label "タイトル" %><br />
-      <%= f.text_field :title %>
+      <%= f.label "タイトル", class: :title %><br />
+      <%= f.text_field :title, class: :editor %>
     </div>
-
-    <% if @project.errors.any? %>
-        <%= @project.errors.messages[:title][0] %>
-    <% end %>
 
     <p>
       <%= f.submit %>

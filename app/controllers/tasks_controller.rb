@@ -19,6 +19,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to project_task_path(@task.project_id, @task.id), notice: 'タスクの作成に成功しました'
     else
+      flash[:alert] = @task.errors.full_messages[0]
       render 'new'
     end
   end
@@ -28,8 +29,9 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to project_task_path(@task.project_id, @task.id)
+      redirect_to project_task_path(@task.project_id, @task.id), notice: 'タスクの編集に成功しました'
     else
+      flash[:alert] = @task.errors.full_messages[0]
       render 'edit'
     end
   end

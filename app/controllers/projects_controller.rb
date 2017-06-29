@@ -19,8 +19,9 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to projects_path
+      redirect_to projects_path, notice: 'プロジェクトの作成に成功しました'
     else
+      flash[:alert] = @project.errors.full_messages[0]
       render 'new'
     end
 
@@ -31,8 +32,9 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to projects_path
+      redirect_to projects_path, notice: 'プロジェクトの編集に成功しました'
     else
+      flash[:alert] = @project.errors.full_messages[0]
       render 'edit'
     end
 
