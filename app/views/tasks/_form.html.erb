@@ -15,9 +15,11 @@
       <%= f.text_area :detail, :size => "50x10", class: :editor %>
     </div>
     <hr>
-    <div>
-      <%= f.label "関連プロジェクト", class: :title %><br />
-      <%= f.collection_select :project_id, Project.all, :id, :title, class: :editor %>
+    <%= f.label "関連プロジェクト", class: :title %><br />
+    <div class="select-box">
+      <label>
+        <%= f.collection_select :project_id, Project.all, :id, :title %>
+      </label>
     </div>
     <hr>
     <div>

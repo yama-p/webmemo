@@ -24,3 +24,42 @@
   background-size: contain;
   margin-left: 20px;
 }
+
+select {
+  font-size: large;
+}
+select::-ms-expand {
+  display: none;
+}
+.select-box {
+  margin: 20px;
+  padding: 5px;
+}
+.select-box select {
+  width: 50%;
+  position: relative;
+  padding: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #999;
+  background: #eee;
+  background: -webkit-linear-gradient(top, #fff 0%,#efebe1 100%);
+  background: linear-gradient(to bottom, #fff 0%,#efebe1 100%);
+}
+.select-box label {
+  position: relative;
+}
+.select-box label:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  background: image-url("arrow.png");
+  background-size: 30px;
+  pointer-events: none;
+}
