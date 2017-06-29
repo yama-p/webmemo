@@ -1,0 +1,33 @@
+
+.border_tegaki {
+  padding: 1em;
+  border: 3px solid #ccc;
+  border-radius: 3em .7em 2em .7em/.7em 2em .7em 3em;
+}
+
+.border_normal {
+  position: relative;
+  padding: .01em 0;
+}
+
+.border_normal::before,
+.border_normal::after {
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 6px;
+  box-sizing: border-box;
+}
+
+.border_normal::before {
+  top: 0;
+  border-top: 2px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.border_normal::after {
+  bottom: 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 2px solid #ccc;
+}
