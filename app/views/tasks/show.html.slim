@@ -1,0 +1,24 @@
+
+= image_tag  url_for(controller: :tasks, action: :send_uploadfile, id:@task.id, project_id:@task.project_id), alt:'タスクの画像は設定されていません', class: :show_task_image
+
+h1 = @task.title
+
+= link_to "[編集]", edit_project_task_path(@task.project_id, @task.id)
+= link_to "[削除]", project_task_path(@task.project_id, @task.id), method: :delete, data: { confirm: "本当に削除しますがよろしいですか？" }
+
+= show_task_part '概要', @task.overview
+hr
+= show_task_part '詳細', @task.detail
+hr
+= show_task_part '関連プロジェクト名', @project.title
+hr
+= show_task_part '開始日', format_datetime(@task.start)
+hr
+= show_task_part '期限', format_datetime(@task.limit)
+
+div
+  p
+    #like_result ↓ このタスクがいいと思ったら押してね : #{@task.like}
+    = button_to "", like_project_task_path(@task.project_id, @task.id), method: :post, class: :task_like_button, remote:true
+
+= link_to "戻る", project_path(@task.project_id)
