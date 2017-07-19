@@ -1,0 +1,70 @@
+h1
+  | 計算機
+
+.page-main role="main"
+  #buttons1
+    - @prices.each do |price|
+      .inner.clearfix
+        label.price #{price.price}
+        label.num 0
+        input.add type="button" value="欲しい"
+        input.sub type="button" value="いらない"
+
+  h2
+    | 合計
+  p#result
+    | 0
+
+
+javascript:
+    var unit = 0;
+
+    $(function () {
+        var duration = 300;
+        function mouseoverFunc () {
+            $(this).css({
+                backgroundColor: '#ae5e9b',
+                color: '#fff'
+            } );
+        }
+        function mouseoutFunc() {
+            $(this).css({
+                backgroundColor: '#fff',
+                color: '#ebc000'
+            } );
+        }
+        function getPrice() {
+            return parseInt($(this).parent().find("label.price").html());
+        }
+        function findLabelNum() {
+            return $(this).parent().find("label.num");
+        }
+        function getNum() {
+            return parseInt(findLabelNum.bind(this)().html());
+        }
+
+        $('.inner .add')
+            .mouseover(mouseoverFunc)
+            .mouseout(mouseoutFunc)
+            .click(function () {
+                var p = getPrice.bind(this)();
+                unit += p;
+                $("#result").text(unit.toString());
+
+                var num = getNum.bind(this)();
+                num++;
+                findLabelNum.bind(this)().html(num);
+            });
+        $('.inner .sub')
+            .mouseover(mouseoverFunc)
+            .mouseout(mouseoutFunc)
+            .click(function () {
+                var num = getNum.bind(this)();
+                if (num > 0) {
+                    unit -= getPrice.bind(this)();
+                    $("#result").text(unit.toString());
+                    num--;
+                    findLabelNum.bind(this)().html(num);
+                }
+            });
+    });

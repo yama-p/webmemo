@@ -1,3 +1,14 @@
+class PriceData
+
+  def initialize(iden, price)
+    @iden = iden
+    @price = price
+  end
+
+  attr_accessor :iden
+  attr_accessor :price
+end
+
 class TasksController < ApplicationController
 
   before_action :set_project_task, only: [:edit, :show]
@@ -37,6 +48,22 @@ class TasksController < ApplicationController
   end
 
   def show
+    redirect_to calcuration_project_task_path(params[:project_id], params[:id])
+  end
+
+  def calcuration
+    price_table = [200, 500, 1000, 300, 500]
+
+    @prices = []
+    i = 0
+    price_table.each do |p|
+
+      price = PriceData.new(i, p)
+
+      @prices.append(price)
+
+      i += 1
+    end
   end
 
   def destroy

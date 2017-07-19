@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         post :toggle
         post :like
         get :send_uploadfile
+        get :calcuration
       end
 
     end
