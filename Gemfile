@@ -18,6 +18,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
+# webpacker
+gem 'webpacker', '~> 2.0'
 
 # rails more 5.1
 gem "jquery-rails"

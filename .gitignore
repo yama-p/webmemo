@@ -31,11 +31,13 @@ vendor/bundle
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+db/
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
 public/assets/*
+public/packs/*
 
 # Ignore other unneeded files.
 doc/
@@ -47,4 +49,8 @@ doc/
 .secret
 
 Gemfile.lock
+yarn.lock/public/packs
+node_modules/*
+app/javascript/packs/application.js
+webmemo.iml
 yarn.lock

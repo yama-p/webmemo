@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20170628011222) do
     t.string "overview"
     t.string "detail"
     t.integer "like", default: 0
-    t.date "start", default: "2017-06-22"
-    t.date "limit", default: "2017-06-22"
+    t.date "start", default: "2017-09-12"
+    t.date "limit", default: "2017-09-12"
     t.binary "uploadfile"
     t.string "uploadctype"
     t.index ["project_id"], name: "index_tasks_on_project_id"
