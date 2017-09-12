@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Teapot from './Teapot'
+import SessionNew from './new'
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("SessionNew");
   ReactDOM.render(
-    <Teapot />,
+    <SessionNew />,
     document.body.appendChild(document.createElement('div')),
   )
 })
