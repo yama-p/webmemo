@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EMail = ({email, onChange}) => {
+const Email = ({email, onChange}) => {
   return <div className="field">
       <label className="title" for="user_email">Email</label>
       <input autofocus="autofocus" id="user_email" type="email" name="user[email]" value={email} onChange={onChange} />;
@@ -26,7 +26,7 @@ const RememberMe = ({checked, onChange}) => {
 
 };
 
-class SettionsNew extends React.Component {
+class SessionsNew extends React.Component {
 
   constructor() {
     super();

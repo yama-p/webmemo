@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SessionNew from './new'
+import SessionNew from './SessionsNew'
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log("SessionNew");
@@ -8,4 +8,4 @@ document.addEventListener('DOMContentLoaded', () => {
     <SessionNew />,
     document.body.appendChild(document.createElement('div')),
   )
-})
+});
